@@ -1,0 +1,72 @@
+/* background slider img */
+body{
+    min-height: 100vh;
+}
+.pic1{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic1.jpg");
+}
+.pic2{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic2.jpg");
+}
+.pic3{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic3.jpg");
+}
+.pic4{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic4.jpg");
+}
+.pic5{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic5.jpg");
+}
+.pic1 , .pic2 , .pic3 , .pic4 , .pic5{
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* box music */
+.box-music{
+    background-color: rgba(0,0,0,0.5);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    position: relative;
+    top: 150px;
+}
+
+/* img music */
+.img{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 180px;
+    animation: rotate 5s linear infinite;
+    animation-play-state: paused;
+}
+.play{
+    animation-play-state : running;
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* time */
+.time{
+    height: 5px;
+    border-radius: 2px;
+    position: relative;
+}
+
+/* time bar */
+.up-time{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 2px;
+}
