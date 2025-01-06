@@ -70,3 +70,12 @@ body{
     bottom: 0;
     border-radius: 2px;
 }
+
+/* controller btns size */
+.repeat-off , .repeat-on , .volume , .mute{
+    font-size: 25px;
+}
+.play , .pause{
+    font-size: 35px;
+}
+}
