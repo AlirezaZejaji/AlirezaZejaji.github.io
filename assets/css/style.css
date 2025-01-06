@@ -79,4 +79,10 @@ body{
 .play , .pause{
     font-size: 35px;
 }
+
+/* Responsive screen */
+@media screen and (min-width: 992px) {
+    .music-box {
+        width: 30%;
+    }
 }
