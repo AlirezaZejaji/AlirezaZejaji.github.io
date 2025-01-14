@@ -17,20 +17,36 @@
             <!-- start music box -->
             <div class="music-box mx-auto p-3">
                 <!-- music image -->
-                <div class="imges text-center">
-                    <img class="img" src="assets/pic/Negaran Many.png" alt="">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="pe-3">
+                        <button class="btn btn-outline-warning fs-5 btn_before">
+                            <i class="bi bi-caret-left-fill"></i>
+                        </button>
+                    </div>
+                    <div class="imges text-center">
+                        <img class="img img_music1 run" src="assets/pic/Negaran Many.png" alt="pichear">
+                        <img class="img img_music2 d-none" src="assets/pic/Gole Eshgh.png" alt="pichear">
+                    </div>
+                    <div class="ps-3">
+                        <button class="btn btn-outline-warning fs-5 btn_next">
+                            <i class="bi bi-caret-right-fill"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- music name -->
                 <div class="text-warning text-center">
-                    <h5>Negaran mani</h5>
-                    <span>Morteza Pashaei</span>
+                    <h5 class="music_name1">Negaran mani</h5>
+                    <span class="artist_name1">Morteza Pashaei</span>
+                    <h5 class="music_name2 d-none">Gole Eshgh</h5>
+                    <span class="artist_name2 d-none">Reza Bahram</span>
                 </div>
 
                 <!-- start controller -->
                 <div class="audio">
                     <!-- music -->
-                    <audio src="assets/music/Negaran mani.mp3" class="music" preload="metadata"></audio>
+                    <audio src="assets/music/Negaran mani.mp3" class="music1 music" preload="metadata"></audio>
+                    <audio src="assets/music/Reza Bahram - Gole Eshgh.mp3" class="music2" preload="metadata"></audio>
 
                     <!-- time -->
                     <div class="music-times text-warning mt-2 d-flex justify-content-between">
