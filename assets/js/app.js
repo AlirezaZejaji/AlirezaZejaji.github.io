@@ -20,6 +20,7 @@ let music_name1 = document.querySelector(".music_name1");
 let artist_name1 = document.querySelector(".artist_name1");
 let music_name2 = document.querySelector(".music_name2");
 let artist_name2 = document.querySelector(".artist_name2");
+let progress_bar = document.querySelector(".progress_bar");
 let r ;
 let time_percentage ;
 let music ;
@@ -423,5 +424,16 @@ function pic(){
         body.classList.remove("pic5");
     }
 }
+
+// progress bar time
+progress_bar.addEventListener("click" , function(e){
+    let clicked_left = e.pageX - progress_bar.getBoundingClientRect().left;
+    let wid = progress_bar.getBoundingClientRect().width;
+    let amount = clicked_left / wid;
+
+    let sec = music.duration * amount;
+
+    music.currentTime = sec;
+})
 
 setInterval(pic, 10000)
