@@ -21,6 +21,7 @@ let artist_name1 = document.querySelector(".artist_name1");
 let music_name2 = document.querySelector(".music_name2");
 let artist_name2 = document.querySelector(".artist_name2");
 let progress_bar = document.querySelector(".progress_bar");
+let progress = document.querySelector(".progress");
 let r ;
 let time_percentage ;
 let music ;
@@ -365,6 +366,10 @@ music.addEventListener("loadedmetadata" , function(){
         second = "0"+second
     }
     end_time.textContent = min + ":" + second ;
+
+    // progress load
+    progress.classList.add("d-none");
+    progress_bar.classList.remove("d-none");
 })
 
 // start time And time bar
