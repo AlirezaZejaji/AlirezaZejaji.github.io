@@ -45,11 +45,26 @@ let songs = [
 ]
 
 // button next and before music
-btn_before.addEventListener("click" , next_music)
+btn_before.addEventListener("click" , before_music)
 
 btn_next.addEventListener("click" , next_music)
 
 let is_song = 0;
+function before_music(){
+    is_song--;
+    if( is_song < 0 ){
+        is_song = (songs.length)-1;
+    }
+
+    img_music.src           = songs[is_song]["image_music"]
+    music_name.innerHTML    = songs[is_song]["music_name"]
+    artist_name.innerHTML   = songs[is_song]["artist_name"]
+    music.src               = songs[is_song]["music"]
+
+    img_music.classList.remove("play")
+    btn_play.classList.remove("d-none")
+    btn_pause.classList.add("d-none")
+}
 function next_music(){
     is_song++;
     if(is_song == songs.length ){
