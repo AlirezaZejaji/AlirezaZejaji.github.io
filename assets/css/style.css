@@ -38,6 +38,9 @@ body{
 
 .slider .slide{
     right: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
 }
 
 /* music box */
@@ -48,7 +51,6 @@ body{
     border-radius: 20px;
     position: relative;
     top: 150px;
-    left: 150px;
     width: 75%;
 }
 
