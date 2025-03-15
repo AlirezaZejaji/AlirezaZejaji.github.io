@@ -35,6 +35,12 @@ let songs = [
         "artist_name"   : "Reza Bahram" ,
         "image_music"   : "assets/pic/Gole Eshgh.png" ,
         "music"         : "assets/music/Reza Bahram - Gole Eshgh.mp3"
+    },
+    {
+        "music_name"    : "Darya Darya" ,
+        "artist_name"   : "Garsha Rezaei" ,
+        "image_music"   : "assets/pic/Garsha Rezaei.png" ,
+        "music"         : "assets/music/Garsha Rezaei - Darya Darya.mp3"
     }
 ]
 
