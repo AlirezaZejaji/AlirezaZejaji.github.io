@@ -196,10 +196,8 @@ function repeat(){
         btn_play.classList.add("d-none");
         btn_pause.classList.remove("d-none");
     }else{
-        btn_play.classList.remove("d-none");
-        btn_pause.classList.add("d-none");
-        music.pause();
-        img_music.classList.remove("play")
+        next_music();
+        music.play();
     }
 }
 
