@@ -9,7 +9,6 @@ let btn_repeatOff = document.querySelector(".repeat-off");
 let btn_repeatOn = document.querySelector(".repeat-on");
 let strat_time = document.querySelector(".strat-time");
 let end_time = document.querySelector(".end-time");
-let body = document.querySelector("body");
 let btn_before = document.querySelector(".btn_before");
 let btn_next = document.querySelector(".btn_next");
 let progress_bar = document.querySelector(".progress_bar");
@@ -179,24 +178,6 @@ function repeat(){
         btn_play.classList.remove("d-none");
         btn_pause.classList.add("d-none");
         music.pause();
-
-// slider
-function pic(){
-    if(body.classList=="pic1"){
-        body.classList.add("pic2");
-        body.classList.remove("pic1");
-    }else if(body.classList=="pic2"){
-        body.classList.add("pic3");
-        body.classList.remove("pic2");
-    }else if(body.classList=="pic3"){
-        body.classList.add("pic4");
-        body.classList.remove("pic3");
-    }else if(body.classList=="pic4"){
-        body.classList.add("pic5");
-        body.classList.remove("pic4");
-    }else if(body.classList=="pic5"){
-        body.classList.add("pic1");
-        body.classList.remove("pic5");
         img_music.classList.remove("play")
     }
 }
@@ -211,5 +192,3 @@ progress_bar.addEventListener("click" , function(e){
 
     music.currentTime = sec;
 })
-
-setInterval(pic, 10000)

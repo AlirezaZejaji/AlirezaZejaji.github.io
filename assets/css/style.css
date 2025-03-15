@@ -17,7 +17,9 @@ body{
 .pic5{
     background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic5.jpg");
 }
-.pic1 , .pic2 , .pic3 , .pic4 , .pic5{
+
+.pic{
+    min-height: 100vh;
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -32,6 +34,7 @@ body{
     border-radius: 20px;
     position: relative;
     top: 150px;
+    left: 150px;
     width: 75%;
 }
 
