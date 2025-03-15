@@ -17,11 +17,30 @@ body{
 .pic5{
     background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic5.jpg");
 }
-.pic1 , .pic2 , .pic3 , .pic4 , .pic5{
+.pic6{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url("../pic/pic6.jpg");
+}
+
+
+.slider .slide{
+    position: absolute;
+}
+.slider , .slider .slide{
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.slider{
+    position: fixed;
+    right: 0;
+}
+
+.slider .slide{
+    right: 0;
     background-size: cover;
-    background-position: top;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: top;
 }
 
 /* music box */
