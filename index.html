@@ -71,18 +71,40 @@
                     </div>
 
                     <!-- controller btns -->
-                    <div class="controls text-center">
-                        <i class="bi bi-repeat-1 pe-3 text-secondary repeat-off"></i>
-                        <i class="bi bi-repeat-1 pe-3 text-warning repeat-on d-none"></i>
-                        <i class="bi bi-play-circle-fill pe-3 text-warning play"></i>
-                        <i class="bi bi-pause-circle-fill pe-3 text-warning pause d-none"></i>
-                        <i class="bi bi-volume-up-fill text-warning volume"></i>
-                        <i class="bi bi-volume-mute-fill text-secondary mute d-none"></i>
+                    <div class="controls">
+                        <div class="control">
+                            <i class="bi bi-repeat-1 icon pe-3 text-secondary repeat-off"></i>
+                            <i class="bi bi-repeat-1 icon pe-3 text-warning repeat-on d-none"></i>
+                            <i class="bi bi-play-circle-fill icon pe-3 text-warning play"></i>
+                            <i class="bi bi-pause-circle-fill icon pe-3 text-warning pause d-none"></i>
+                            <i class="bi bi-volume-up-fill icon text-warning volume"></i>
+                            <i class="bi bi-volume-mute-fill icon text-secondary mute d-none"></i>
+                        </div>
+                        <div class="btn_list">
+                            <i class="bi bi-music-note-list icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"></i>
+                        </div>
                     </div>
                 </div>
                 <!-- end controler -->
             </div>
             <!-- end music box -->
+        </div>
+        <!-- Offcanvas Sidebar -->
+        <div class="offcanvas offcanvas-end text-bg-dark" id="demo">
+            <div class="offcanvas-header">
+                <h2 class="offcanvas-title text-warning">Play List</h2>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="items">
+                    
+                </div>
+            </div>
+
+            <!-- alert -->
+            <ul class="list-unstyled list">
+        
+            </ul>
         </div>
     </div>
 

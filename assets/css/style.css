@@ -18,10 +18,8 @@ body{
     background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic5.jpg");
 }
 .pic6{
-    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) , url("../pic/pic6.jpg");
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic6.jpg");
 }
-
-
 .slider .slide{
     position: absolute;
 }
@@ -75,7 +73,7 @@ body{
     }
 }
 
-/* time */
+/* time bar*/
 .progress_bar{
     height: 7px;
     border-radius: 100px;
@@ -84,7 +82,7 @@ body{
     cursor: pointer;
 }
 
-/* time bar */
+/* time */
 .up-time{
     position: absolute;
     left: 0;
@@ -94,11 +92,24 @@ body{
 }
 
 /* controller btns size */
-.repeat-off , .repeat-on , .volume , .mute{
+.icon{
     font-size: 25px;
 }
 .play , .pause{
     font-size: 35px;
+}
+.controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+.control{
+    padding-left: 15px;
+}
+.btn_list{
+    position: relative;
+    left: 70px;
 }
 
 /* Responsive screen */
@@ -106,9 +117,24 @@ body{
     .music-box {
         width: 35%;
     }
+    .btn_list{
+        left: 80px;
+    }
 }
 
 /* cursor btn */
 .controls i{
     cursor: pointer;
+}
+
+/* play list items */
+.pic_music img{
+    width: 70px;
+    height: 70px;
+    border-radius: 10%;
+}
+.item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
