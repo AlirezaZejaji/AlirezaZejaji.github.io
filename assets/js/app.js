@@ -37,6 +37,12 @@ let songs = [
         "music"         : "assets/music/Reza Bahram - Gole Eshgh.mp3"
     },
     {
+        "music_name"    : "Ghaf" ,
+        "artist_name"   : "Alireza Talischi" ,
+        "image_music"   : "assets/pic/Alireza Talischi.png" ,
+        "music"         : "assets/music/Alireza Talischi - Ghaf.mp3"
+    },
+    {
         "music_name"    : "Darya Darya" ,
         "artist_name"   : "Garsha Rezaei" ,
         "image_music"   : "assets/pic/Garsha Rezaei.png" ,
