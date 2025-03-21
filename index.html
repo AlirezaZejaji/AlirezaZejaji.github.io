@@ -9,10 +9,15 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <title>Music Player</title>
 </head>
 <body>
-    <div class="header">
+    <div class="header winky-sans">
+        <!-- back ground slider -->
         <div id="carouselExampleFade carousel-fade" class="carousel slide carousel-fade " data-bs-ride="carousel" data-bs-interval="8000" data-bs-pause="false">
             <div class="carousel-inner slider">
                 <div class="carousel-item slide pic1 active"></div>
@@ -23,10 +28,12 @@
                 <div class="carousel-item slide pic6"></div>
             </div>
         </div>
+
+        <!-- start main box -->
         <div class="container">
             <!-- start music box -->
             <div class="music-box mx-auto p-3">
-                <!-- music image -->
+                <!-- music image And next , before music -->
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="pe-2">
                         <button class="btn btn-outline-warning fs-6 btn_before">
@@ -44,18 +51,18 @@
                 </div>
 
                 <!-- music name -->
-                <div class="text-warning text-center">
-                    <h5 class="music_name">Negaran mani</h5>
+                <div class="text-warning text-center fw-normal">
+                    <h5 class="music_name">Negaran Mani</h5>
                     <span class="artist_name">Morteza Pashaei</span>
                 </div>
 
-                <!-- start controller -->
+                <!-- start controller And timebar -->
                 <div class="audio">
                     <!-- music -->
                     <audio src="assets/music/Negaran mani.mp3" class=" music" preload="metadata"></audio>
 
                     <!-- time -->
-                    <div class="music-times text-warning mt-2 d-flex justify-content-between">
+                    <div class="music-times text-warning mt-2 d-flex justify-content-between fw-normal">
                         <span class="strat-time">00:00</span>
                         <span class="end-time">00:00</span>
                     </div>
@@ -85,16 +92,21 @@
                         </div>
                     </div>
                 </div>
-                <!-- end controler -->
+                <!-- end controler And timebar -->
             </div>
             <!-- end music box -->
         </div>
-        <!-- Offcanvas Sidebar -->
+        <!-- end main box -->
+
+        <!-- strat Offcanvas Sidebar -->
         <div class="offcanvas offcanvas-end text-bg-dark" id="demo">
+            <!-- header items -->
             <div class="offcanvas-header">
                 <h2 class="offcanvas-title text-warning">Play List</h2>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
             </div>
+
+            <!-- body items -->
             <div class="offcanvas-body">
                 <div class="items">
                     
@@ -106,6 +118,7 @@
         
             </ul>
         </div>
+        <!-- end Offcanvas Sidebar -->
     </div>
 
     <!-- bootstrap bundle -->

@@ -127,7 +127,7 @@ body{
     cursor: pointer;
 }
 
-/* play list items */
+/* play list item */
 .pic_music img{
     width: 70px;
     height: 70px;
@@ -137,4 +137,12 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+/* font */
+.winky-sans{
+    font-family: "Winky Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
 }

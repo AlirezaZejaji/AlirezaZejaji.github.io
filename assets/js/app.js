@@ -25,7 +25,7 @@ let second ;
 // information music
 let songs = [
     {
-        "music_name"    : "Negaran mani" ,
+        "music_name"    : "Negaran Mani" ,
         "artist_name"   : "Morteza Pashaei" ,
         "image_music"   : "assets/pic/Negaran Many.png" ,
         "music"         : "assets/music/Negaran mani.mp3"
@@ -55,41 +55,49 @@ let items = document.querySelector(".items");
 let list = document.querySelector(".list");
 let n = 0;
 songs.forEach(function(item){
-        let div = document.createElement("div");
+    // show music in play list
+    let div = document.createElement("div");
 
-        div.className = `item item_${n} btn btn-outline-warning mb-3`
-        div.innerHTML =`
-        <div class="pic_music">
-            <img src="${item["image_music"]}" alt="picture">
-        </div>
-        <div class="info_music ps-3">
-            <h5>${item["music_name"]}</h5>
-            <span>${item["artist_name"]}</span>
-        </div>
-        `
+    div.className = `item item_${n} btn btn-outline-warning mb-3`
+    div.innerHTML =`
+    <div class="pic_music">
+        <img src="${item["image_music"]}" alt="picture">
+    </div>
+    <div class="info_music ps-3">
+        <h5>${item["music_name"]}</h5>
+        <span class = "fw-normal">${item["artist_name"]}</span>
+    </div>
+    `
 
-        items.append(div);
+    // add music in play list
+    items.append(div);
 
-        div.addEventListener("click" , function(){
-            img_music.classList.remove("play")
-            btn_play.classList.remove("d-none")
-            btn_pause.classList.add("d-none")
+    // Play music from a playlist
+    div.addEventListener("click" , function(){
+        img_music.classList.remove("play")
+        btn_play.classList.remove("d-none")
+        btn_pause.classList.add("d-none")
 
-            img_music.src           = item["image_music"]
-            music_name.innerHTML    = item["music_name"]
-            artist_name.innerHTML   = item["artist_name"]
-            music.src               = item["music"]
+        img_music.src           = item["image_music"]
+        music_name.innerHTML    = item["music_name"]
+        artist_name.innerHTML   = item["artist_name"]
+        music.src               = item["music"]
 
-            let li = document.createElement("li");
-            li.innerHTML    = `<i class="bi bi-check-all fs-5"></i> The music has changed`
             li.className    = "alert alert-success alert-dismissible fade show"
-            list.append(li)
-            setTimeout(function(){
-                li.remove()
-            }, 3000);
-        })
+        // create alert
+        let li = document.createElement("li");
+        li.innerHTML    = `<i class="bi bi-check-all fs-5"></i> <span>The music has changed</span>`
 
-        n++;
+        // add alert
+        list.append(li)
+
+        // remove alert
+        setTimeout(function(){
+            li.remove()
+        }, 3000);
+    })
+
+    n++;
 })
 
 // button next and before music
