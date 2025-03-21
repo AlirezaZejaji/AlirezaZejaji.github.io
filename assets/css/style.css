@@ -146,3 +146,8 @@ body{
     font-weight: bold;
     font-style: normal;
 }
+
+/* alert success */
+.box-shadow-green{
+    box-shadow: 6px 3px 30px 6px rgb(94, 255, 0);
+}

@@ -83,9 +83,9 @@ songs.forEach(function(item){
         artist_name.innerHTML   = item["artist_name"]
         music.src               = item["music"]
 
-            li.className    = "alert alert-success alert-dismissible fade show"
         // create alert
         let li = document.createElement("li");
+        li.className    = "alert alert-light box-shadow-green fade show mx-3"
         li.innerHTML    = `<i class="bi bi-check-all fs-5"></i> <span>The music has changed</span>`
 
         // add alert
