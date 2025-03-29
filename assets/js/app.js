@@ -57,7 +57,6 @@ let n = 0;
 songs.forEach(function(item){
     // show music in play list
     let div = document.createElement("div");
-
     div.className = `item item_${n} btn btn-outline-warning mb-3`
     div.innerHTML =`
     <div class="pic_music">
@@ -78,23 +77,14 @@ songs.forEach(function(item){
         btn_play.classList.remove("d-none")
         btn_pause.classList.add("d-none")
 
+        // music changed
         img_music.src           = item["image_music"]
         music_name.innerHTML    = item["music_name"]
         artist_name.innerHTML   = item["artist_name"]
         music.src               = item["music"]
 
         // create alert
-        let li = document.createElement("li");
-        li.className    = "alert alert-light box-shadow-green fade show mx-3"
-        li.innerHTML    = `<i class="bi bi-check-all fs-5"></i> <span>The music has changed</span>`
-
-        // add alert
-        list.append(li)
-
-        // remove alert
-        setTimeout(function(){
-            li.remove()
-        }, 3000);
+        swal("Successful change!", "The music has changed", "success");
     })
 
     n++;
