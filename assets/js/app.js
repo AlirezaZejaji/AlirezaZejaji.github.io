@@ -17,6 +17,10 @@ let music = document.querySelector(".music");
 let img_music = document.querySelector(".img_music");
 let music_name = document.querySelector(".music_name");
 let artist_name = document.querySelector(".artist_name");
+let btn_add_music   = document.querySelector(".btn_add_music");
+let inp_music_name  = document.querySelector(".inp_music_name");
+let inp_artist_name = document.querySelector(".inp_artist_name");
+let inp_music       = document.querySelector(".inp_music");
 let r ;
 let time_percentage ;
 let min ;
@@ -58,10 +62,10 @@ songs.forEach(function(item){
     let div = document.createElement("div");
     div.className = `item item_${n} btn btn-outline-warning mb-3`
     div.innerHTML =`
-    <div class="pic_music">
+    <div class="pic_music w-25">
         <img src="${item["image_music"]}" alt="picture">
     </div>
-    <div class="info_music ps-3">
+    <div class="info_music ps-3 w-50">
         <h5>${item["music_name"]}</h5>
         <span class = "fw-normal">${item["artist_name"]}</span>
     </div>
@@ -89,9 +93,77 @@ songs.forEach(function(item){
     n++;
 })
 
+// add music
+btn_add_music.addEventListener("click" , function(){
+    let inp_music_name_value    = inp_music_name.value;
+    let inp_artist_name_value   = inp_artist_name.value;
+    let inp_music_value         = inp_music.files[0];
+    
+    // info music
+    let add_music = {
+        "music_name"    : inp_music_name_value ,
+        "artist_name"   : inp_artist_name_value ,
+        "image_music"   : "assets/pic/disck.webp" ,
+        "music"         : ""
+    }
+
+    if( inp_music.value != "" ){
+        // get music
+        let fReader_music = new FileReader();
+        fReader_music.readAsDataURL(inp_music_value);
+        fReader_music.onloadend = function(event){
+            let music = event.target.result;
+            add_music.music = music;
+        }
+
+        // add music in information musics
+        songs.push(add_music);
+
+        // show music in play list
+        let div = document.createElement("div");
+        div.className = `item item_${n} btn btn-outline-warning mb-3`
+        div.innerHTML =`
+        <div class="pic_music w-25">
+            <img src="${add_music["image_music"]}" alt="picture">
+        </div>
+        <div class="info_music ps-3 w-50">
+            <h5>${add_music["music_name"]}</h5>
+            <span class = "fw-normal">${add_music["artist_name"]}</span>
+        </div>
+        `
+
+        // add music in play list
+        items.append(div);
+        // create alert success
+        swal("Successful add!", "The music has added", "success");
+
+        // Play music from a playlist
+        div.addEventListener("click" , function(){
+            img_music.classList.remove("play")
+            btn_play.classList.remove("d-none")
+            btn_pause.classList.add("d-none")
+
+            // music changed
+            img_music.src           = add_music["image_music"]
+            music_name.innerHTML    = add_music["music_name"]
+            artist_name.innerHTML   = add_music["artist_name"]
+            music.src               = add_music["music"]
+
+            // create alert success
+            swal("Successful change!", "The music has changed", "success");
+        })
+
+        inp_music_name.value    = "";
+        inp_artist_name.value   = "";
+        inp_music.value         = "";
+    }else{
+        // create alert warning
+        swal("Warning", "Please add music", "warning");
+    }
+})
+
 // button next and before music
 btn_before.addEventListener("click" , before_music)
-
 btn_next.addEventListener("click" , next_music)
 
 let is_song = 0;
