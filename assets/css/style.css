@@ -20,6 +20,24 @@ body{
 .pic6{
     background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic6.jpg");
 }
+.pic7{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic7.gif");
+}
+.pic8{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic8.gif");
+}
+.pic9{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic9.jfif");
+}
+.pic10{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic10.jfif");
+}
+.pic11{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic11.jfif");
+}
+.pic12{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url("../pic/pic12.jfif");
+}
 .slider .slide{
     position: absolute;
 }
