@@ -52,7 +52,6 @@ let songs = [
 
 // play list
 let items = document.querySelector(".items");
-let list = document.querySelector(".list");
 let n = 0;
 songs.forEach(function(item){
     // show music in play list

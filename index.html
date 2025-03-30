@@ -20,7 +20,7 @@
 <body>
     <div class="header winky-sans">
         <!-- back ground slider -->
-        <div id="carouselExampleFade carousel-fade" class="carousel slide carousel-fade " data-bs-ride="carousel" data-bs-interval="8000" data-bs-pause="false">
+        <div id="carouselExampleFade carousel-fade" class="carousel slide carousel-fade " data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
             <div class="carousel-inner slider">
                 <div class="carousel-item slide pic1 active"></div>
                 <div class="carousel-item slide pic2"></div>
@@ -80,7 +80,11 @@
                     </div>
 
                     <!-- controller btns -->
-                    <div class="controls">
+                    <div class="controls d-flex align-items-center justify-content-between m-0">
+                        <!-- Button to open the offcanvas sidebar -->
+                        <div class="btn_add">
+                            <i class="bi bi-plus-square icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#add"></i>
+                        </div>
                         <div class="control">
                             <i class="bi bi-repeat-1 icon pe-3 text-secondary repeat-off"></i>
                             <i class="bi bi-repeat-1 icon pe-3 text-warning repeat-on d-none"></i>
@@ -90,7 +94,7 @@
                             <i class="bi bi-volume-mute-fill icon text-secondary mute d-none"></i>
                         </div>
                         <div class="btn_list">
-                            <i class="bi bi-music-note-list icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"></i>
+                            <i class="bi bi-music-note-list icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#paly_list"></i>
                         </div>
                     </div>
                 </div>
@@ -100,8 +104,8 @@
         </div>
         <!-- end main box -->
 
-        <!-- strat Offcanvas Sidebar -->
-        <div class="offcanvas offcanvas-end text-bg-dark" id="demo">
+        <!-- strat play list Sidebar -->
+        <div class="offcanvas offcanvas-end text-bg-dark" id="paly_list">
             <!-- header items -->
             <div class="offcanvas-header">
                 <h2 class="offcanvas-title text-warning">Play List</h2>
@@ -115,7 +119,36 @@
                 </div>
             </div>
         </div>
-        <!-- end Offcanvas Sidebar -->
+        <!-- end play list Sidebar -->
+
+        <!-- start add music Sidebar -->
+        <div class="offcanvas offcanvas-start text-bg-dark" id="add">
+            <div class="offcanvas-header">
+                <h1 class="offcanvas-title text-warning">Add Music</h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body text-warning p-3">
+                <div>
+                    <label for="name_m">Enter music name :</label>
+                    <input type="text" id="name_m" class="form-control inp_music_name">
+                </div>
+                <div class="my-3">
+                    <label for="name_a">Enter artist name :</label>
+                    <input type="text" id="name_a" class="form-control inp_artist_name">
+                </div>
+
+                <div class="my-3">
+                    <label for="audio_m">Select music :</label>
+                    <input type="file" id="audio_m" class="form-control inp_music">
+                </div>
+                
+                <div>
+                    <button class="btn btn-success btn_add_music w-100">Add</button>
+                </div>
+            </div>
+        </div>
+        <!-- start end music Sidebar -->
     </div>
 
     <!-- bootstrap bundle -->

@@ -57,6 +57,7 @@ body{
     border-radius: 50%;
     object-fit: cover;
     height: 180px;
+    width: 180px;
     animation: rotate 5s linear infinite;
     animation-play-state: paused;
 }
@@ -107,18 +108,11 @@ body{
 .control{
     padding-left: 15px;
 }
-.btn_list{
-    position: relative;
-    left: 50px;
-}
 
 /* Responsive screen */
 @media screen and (min-width: 992px) {
     .music-box {
         width: 35%;
-    }
-    .btn_list{
-        left: 80px;
     }
 }
 
