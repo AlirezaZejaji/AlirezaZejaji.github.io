@@ -135,7 +135,14 @@
             </div>
 
             <div class="offcanvas-body text-warning p-3">
+                <!-- get music -->
                 <div>
+                    <label for="audio_m">Select music :</label>
+                    <input type="file" id="audio_m" class="form-control inp_music" onchange="loadFile(this)">
+                </div>
+
+                <!-- name music -->
+                <div class="my-3">
                     <label for="name_m">Enter music name :</label>
                     <input type="text" id="name_m" class="form-control inp_music_name">
                 </div>
@@ -143,14 +150,14 @@
                     <label for="name_a">Enter artist name :</label>
                     <input type="text" id="name_a" class="form-control inp_artist_name">
                 </div>
-
-                <div class="my-3">
-                    <label for="audio_m">Select music :</label>
-                    <input type="file" id="audio_m" class="form-control inp_music">
-                </div>
                 
+                <!-- cover music -->
+                <div class="my-3 text-center">
+                    <img src="" alt="" class="music_cover d-none" style="width: 150px; height: 150px; border-radius: 10px;">
+                </div>
+
                 <div>
-                    <button class="btn btn-success btn_add_music w-100">Add</button>
+                    <button class="btn btn-success btn_add_music w-100" data-bs-dismiss="offcanvas">Add</button>
                 </div>
             </div>
         </div>
@@ -159,6 +166,8 @@
 
     <!-- bootstrap bundle -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript-ID3-Reader -->
+    <script src="assets/plugin/JavaScript-ID3-Reader/id3-minimized.js"></script>
     <!-- js -->
     <script src="assets/js/app.js"></script>
 </body>

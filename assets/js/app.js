@@ -21,6 +21,7 @@ let btn_add_music   = document.querySelector(".btn_add_music");
 let inp_music_name  = document.querySelector(".inp_music_name");
 let inp_artist_name = document.querySelector(".inp_artist_name");
 let inp_music       = document.querySelector(".inp_music");
+let music_cover     = document.querySelector(".music_cover");
 let r ;
 let time_percentage ;
 let min ;
@@ -61,6 +62,7 @@ songs.forEach(function(item){
     // show music in play list
     let div = document.createElement("div");
     div.className = `item item_${n} btn btn-outline-warning mb-3`
+    div.setAttribute("data-bs-dismiss" , "offcanvas");
     div.innerHTML =`
     <div class="pic_music w-25">
         <img src="${item["image_music"]}" alt="picture">
@@ -94,16 +96,45 @@ songs.forEach(function(item){
 })
 
 // add music
+function loadFile(input) {
+    let file = input.files[0];
+    let url = file.urn || file.name;
+
+    ID3.loadTags(url, function () {
+        showTags(url);
+    }, {
+        tags: ["title", "artist", "picture"],
+        dataReader: ID3.FileAPIReader(file)
+    });
+}
+function showTags(url) {
+    let tags = ID3.getAllTags(url);
+    inp_music_name.value  = tags.title || "";
+    inp_artist_name.value = tags.artist || "";
+    let image = tags.picture;
+    if (image) {
+        let base64String = "";
+        for (let i = 0; i < image.data.length; i++) {
+            base64String += String.fromCharCode(image.data[i]);
+        }
+        let base64 = "data:" + image.format + ";base64," + window.btoa(base64String);
+        music_cover.setAttribute('src', base64);
+        music_cover.classList.remove("d-none");
+    } else {
+        music_cover.src = "assets/pic/disck.webp";
+    }
+}
 btn_add_music.addEventListener("click" , function(){
     let inp_music_name_value    = inp_music_name.value;
     let inp_artist_name_value   = inp_artist_name.value;
+    let music_cover_src         = music_cover.src;
     let inp_music_value         = inp_music.files[0];
     
     // info music
     let add_music = {
         "music_name"    : inp_music_name_value ,
         "artist_name"   : inp_artist_name_value ,
-        "image_music"   : "assets/pic/disck.webp" ,
+        "image_music"   : music_cover_src ,
         "music"         : ""
     }
 
