@@ -21,7 +21,7 @@ let btn_add_music   = document.querySelector(".btn_add_music");
 let inp_music_name  = document.querySelector(".inp_music_name");
 let inp_artist_name = document.querySelector(".inp_artist_name");
 let inp_music       = document.querySelector(".inp_music");
-let music_cover     = document.querySelector(".music_cover");
+let add_card        = document.querySelector(".add_card");
 let r ;
 let time_percentage ;
 let min ;
@@ -96,6 +96,7 @@ songs.forEach(function(item){
 })
 
 // add music
+// get info music
 function loadFile(input) {
     let file = input.files[0];
     let url = file.urn || file.name;
@@ -107,10 +108,12 @@ function loadFile(input) {
         dataReader: ID3.FileAPIReader(file)
     });
 }
+let music_cover_src;
 function showTags(url) {
     let tags = ID3.getAllTags(url);
     inp_music_name.value  = tags.title || "";
     inp_artist_name.value = tags.artist || "";
+
     let image = tags.picture;
     if (image) {
         let base64String = "";
@@ -118,16 +121,34 @@ function showTags(url) {
             base64String += String.fromCharCode(image.data[i]);
         }
         let base64 = "data:" + image.format + ";base64," + window.btoa(base64String);
-        music_cover.setAttribute('src', base64);
-        music_cover.classList.remove("d-none");
+        music_cover_src = base64;
     } else {
-        music_cover.src = "assets/pic/disck.webp";
+        music_cover_src = "assets/pic/disck.webp";
     }
+
+    let card_music = document.createElement("div");
+    card_music.className = `item card_music btn btn-outline-warning mb-3`
+    card_music.style.cursor = "default";
+    card_music.innerHTML =`
+    <div class="pic_music w-25">
+        <img src="${music_cover_src}" alt="picture">
+    </div>
+    <div class="info_music ps-3 w-50">
+        <h5 class="n_music">${inp_music_name.value}</h5>
+        <span class = " n_artist fw-normal">${inp_artist_name.value}</span>
+    </div>
+    `
+    add_card.append(card_music);
 }
+// change textContent info music
+function change(){
+    document.querySelector(".n_music").textContent = inp_music_name.value;
+    document.querySelector(".n_artist").textContent = inp_artist_name.value;
+}
+// add music in list
 btn_add_music.addEventListener("click" , function(){
     let inp_music_name_value    = inp_music_name.value;
     let inp_artist_name_value   = inp_artist_name.value;
-    let music_cover_src         = music_cover.src;
     let inp_music_value         = inp_music.files[0];
     
     // info music
@@ -153,6 +174,7 @@ btn_add_music.addEventListener("click" , function(){
         // show music in play list
         let div = document.createElement("div");
         div.className = `item item_${n} btn btn-outline-warning mb-3`
+        div.setAttribute("data-bs-dismiss" , "offcanvas")
         div.innerHTML =`
         <div class="pic_music w-25">
             <img src="${add_music["image_music"]}" alt="picture">
@@ -184,9 +206,13 @@ btn_add_music.addEventListener("click" , function(){
             swal("Successful change!", "The music has changed", "success");
         })
 
+        // refresh value
         inp_music_name.value    = "";
         inp_artist_name.value   = "";
         inp_music.value         = "";
+        let card_music = document.querySelector(".card_music");
+        card_music.remove();
+
     }else{
         // create alert warning
         swal("Warning", "Please add music", "warning");

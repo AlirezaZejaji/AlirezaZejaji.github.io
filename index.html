@@ -87,18 +87,19 @@
 
                     <!-- controller btns -->
                     <div class="controls d-flex align-items-center justify-content-between m-0">
-                        <!-- Button to open the offcanvas sidebar -->
+                        <!-- Button to open the add music Sidebar -->
                         <div class="btn_add">
                             <i class="bi bi-plus-square icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#add"></i>
                         </div>
                         <div class="control">
-                            <i class="bi bi-repeat-1 icon pe-3 text-secondary repeat-off"></i>
-                            <i class="bi bi-repeat-1 icon pe-3 text-warning repeat-on d-none"></i>
-                            <i class="bi bi-play-circle-fill icon pe-3 text-warning play"></i>
-                            <i class="bi bi-pause-circle-fill icon pe-3 text-warning pause d-none"></i>
+                            <i class="bi bi-repeat-1 icon me-3 text-secondary repeat-off"></i>
+                            <i class="bi bi-repeat-1 icon me-3 text-warning repeat-on d-none"></i>
+                            <i class="bi bi-play-circle-fill icon me-3 text-warning play"></i>
+                            <i class="bi bi-pause-circle-fill icon me-3 text-warning pause d-none"></i>
                             <i class="bi bi-volume-up-fill icon text-warning volume"></i>
                             <i class="bi bi-volume-mute-fill icon text-secondary mute d-none"></i>
                         </div>
+                        <!-- Button to open the play list Sidebar -->
                         <div class="btn_list">
                             <i class="bi bi-music-note-list icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#paly_list"></i>
                         </div>
@@ -144,16 +145,16 @@
                 <!-- name music -->
                 <div class="my-3">
                     <label for="name_m">Enter music name :</label>
-                    <input type="text" id="name_m" class="form-control inp_music_name">
+                    <input type="text" id="name_m" class="form-control inp_music_name" onchange="change()">
                 </div>
                 <div class="my-3">
                     <label for="name_a">Enter artist name :</label>
-                    <input type="text" id="name_a" class="form-control inp_artist_name">
+                    <input type="text" id="name_a" class="form-control inp_artist_name" onchange="change()">
                 </div>
                 
-                <!-- cover music -->
-                <div class="my-3 text-center">
-                    <img src="" alt="" class="music_cover d-none" style="width: 150px; height: 150px; border-radius: 10px;">
+                <!-- card music -->
+                <div class="my-3 add_card">
+                    
                 </div>
 
                 <div>

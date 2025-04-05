@@ -76,7 +76,7 @@ body{
     object-fit: cover;
     height: 180px;
     width: 180px;
-    animation: rotate 5s linear infinite;
+    animation: rotate 8s linear infinite;
     animation-play-state: paused;
 }
 .play{
@@ -137,6 +137,10 @@ body{
 /* cursor btn */
 .controls i{
     cursor: pointer;
+    transition-duration: 0.3s;
+}
+.controls i:hover{
+    color: yellow!important;
 }
 
 /* play list item */
