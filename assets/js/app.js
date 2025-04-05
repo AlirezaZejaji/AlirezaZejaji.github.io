@@ -109,6 +109,7 @@ function loadFile(input) {
     });
 }
 let music_cover_src;
+let card_music = document.createElement("div");
 function showTags(url) {
     let tags = ID3.getAllTags(url);
     inp_music_name.value  = tags.title || "";
@@ -126,7 +127,6 @@ function showTags(url) {
         music_cover_src = "assets/pic/disck.webp";
     }
 
-    let card_music = document.createElement("div");
     card_music.className = `item card_music btn btn-outline-warning mb-3`
     card_music.style.cursor = "default";
     card_music.innerHTML =`
