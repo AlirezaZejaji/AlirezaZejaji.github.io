@@ -1,22 +1,24 @@
 // select items
-let box_music = document.querySelector(".box-music");
-let btn_play = document.querySelector(".play");
-let btn_pause = document.querySelector(".pause");
-let up_time = document.querySelector(".up-time");
-let btn_volume = document.querySelector(".volume")
-let btn_mute = document.querySelector(".mute");
-let btn_repeatOff = document.querySelector(".repeat-off");
-let btn_repeatOn = document.querySelector(".repeat-on");
-let strat_time = document.querySelector(".strat-time");
-let end_time = document.querySelector(".end-time");
-let btn_before = document.querySelector(".btn_before");
-let btn_next = document.querySelector(".btn_next");
-let progress_bar = document.querySelector(".progress_bar");
-let progress = document.querySelector(".progress");
-let music = document.querySelector(".music");
-let img_music = document.querySelector(".img_music");
-let music_name = document.querySelector(".music_name");
-let artist_name = document.querySelector(".artist_name");
+let box_music       = document.querySelector(".box-music");
+let btn_play        = document.querySelector(".play");
+let btn_pause       = document.querySelector(".pause");
+let up_time         = document.querySelector(".up-time");
+let btn_volume      = document.querySelector(".volume")
+let btn_mute        = document.querySelector(".mute");
+let btn_repeatOff   = document.querySelector(".repeat-off");
+let btn_repeatOn    = document.querySelector(".repeat-on");
+let btn_rand_playOff= document.querySelector(".rand_play_off");
+let btn_rand_playOn = document.querySelector(".rand_play_on");
+let strat_time      = document.querySelector(".strat-time");
+let end_time        = document.querySelector(".end-time");
+let btn_before      = document.querySelector(".btn_before");
+let btn_next        = document.querySelector(".btn_next");
+let progress_bar    = document.querySelector(".progress_bar");
+let progress        = document.querySelector(".progress");
+let music           = document.querySelector(".music");
+let img_music       = document.querySelector(".img_music");
+let music_name      = document.querySelector(".music_name");
+let artist_name     = document.querySelector(".artist_name");
 let btn_add_music   = document.querySelector(".btn_add_music");
 let inp_music_name  = document.querySelector(".inp_music_name");
 let inp_artist_name = document.querySelector(".inp_artist_name");
@@ -112,8 +114,8 @@ let music_cover_src;
 let card_music = document.createElement("div");
 function showTags(url) {
     let tags = ID3.getAllTags(url);
-    inp_music_name.value  = tags.title || "";
-    inp_artist_name.value = tags.artist || "";
+    inp_music_name.value  = tags.title || "unknown";
+    inp_artist_name.value = tags.artist || "unknown";
 
     let image = tags.picture;
     if (image) {
@@ -213,6 +215,11 @@ btn_add_music.addEventListener("click" , function(){
         let card_music = document.querySelector(".card_music");
         card_music.remove();
 
+        // random music
+        if( rand_on == true ){
+            random_music_on()
+        }
+
     }else{
         // create alert warning
         swal("Warning", "Please add music", "warning");
@@ -224,8 +231,35 @@ btn_before.addEventListener("click" , before_music)
 btn_next.addEventListener("click" , next_music)
 
 let is_song = 0;
+let rand_on = false;
+// btn random paly on
+btn_rand_playOff.addEventListener("click" , random_music_on)
+function random_music_on(){
+    btn_rand_playOff.classList.add("d-none");
+    btn_rand_playOn.classList.remove("d-none");
+    
+    is_song = Math.random() * songs.length;
+    is_song = Math.floor(is_song);
+    rand_on = true;
+    return is_song;
+}
+// btn random paly off
+btn_rand_playOn.addEventListener("click" , function(){
+    btn_rand_playOff.classList.remove("d-none");
+    btn_rand_playOn.classList.add("d-none");
+
+    rand_on = false;
+})
+
+// btn before
 function before_music(){
-    is_song--;
+    // random music
+    if( rand_on == true ){
+        random_music_on()
+    }else{
+        is_song--;
+    }
+
     if( is_song < 0 ){
         is_song = (songs.length)-1;
     }
@@ -239,8 +273,15 @@ function before_music(){
     btn_play.classList.remove("d-none")
     btn_pause.classList.add("d-none")
 }
+// btn next
 function next_music(){
-    is_song++;
+    // random music
+    if( rand_on == true ){
+        random_music_on()
+    }else{
+        is_song++;
+    }
+
     if(is_song == songs.length ){
         is_song = 0;
     }
