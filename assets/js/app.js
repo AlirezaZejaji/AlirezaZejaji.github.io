@@ -390,13 +390,9 @@ function time_update(){
     if(second<10){
         second = "0"+second
     }
-    let m = 0 ;
-    for(let i = 0 ; i<music.currentTime ; i++){
-        if(music.currentTime>i){
-            up_time.style.width = `${m}%`
-            m = m + time_percentage
-        }
-    }
+    let percentage = (music.currentTime / music.duration) * 100;
+    up_time.style.width = `${percentage}%`;
+
     strat_time.textContent = min + ":" + second ;
 }
 
