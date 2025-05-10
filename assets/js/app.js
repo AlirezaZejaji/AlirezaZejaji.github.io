@@ -422,3 +422,94 @@ progress_bar.addEventListener("click" , function(e){
 
     music.currentTime = sec;
 })
+
+// Equlizer
+let input1 = document.querySelector(".form-check-input");
+let check_on = document.querySelector(".check_on");
+let check_off = document.querySelector(".check_off");
+let slider = document.querySelector(".slider");
+let can = document.querySelector(".can");
+
+let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+let sourceCreated = false;
+
+let isVisualizerActive = false;
+
+input1.addEventListener("change", change_check);
+
+function change_check() {
+    if (input1.checked) {
+        document.body.style = "background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);"
+        check_on.classList.remove("d-none");
+        check_off.classList.add("d-none");
+
+        slider.classList.add("d-none");
+        can.classList.remove("d-none");
+
+        let canvas = document.querySelector('.canvas');
+        let ctx = canvas.getContext('2d');
+
+        let analyser = audioContext.createAnalyser();
+
+        if(sourceCreated){
+            source.disconnect();
+            analyser.disconnect();
+        }
+
+        
+        let source = audioContext.createMediaElementSource(music);
+        source.connect(analyser);
+        analyser.connect(audioContext.destination);
+        sourceCreated = true;
+
+        analyser.fftSize = 256;
+        let bufferLength = analyser.frequencyBinCount;
+        let dataArray = new Uint8Array(bufferLength);
+
+        function draw(){
+            if (!isVisualizerActive) return;
+
+            requestAnimationFrame(draw);
+
+            analyser.getByteFrequencyData(dataArray);
+
+            ctx.fillStyle = "#111";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            let barWidth = (canvas.width / bufferLength) * 2.4;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                let barHeight = dataArray[i] * 0.5;
+                let gradient = ctx.createLinearGradient(0, canvas.height - barHeight, 0, canvas.height);
+                gradient.addColorStop(0, `hsl(${(i + (Date.now() * 0.02) % 360)}, 100%, 70%)`);
+                gradient.addColorStop(1, `rgba(0, 0, 0, 0.4)`);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+
+                x += barWidth + 1;
+            }
+        }
+
+        music.onplay = () => {
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            isVisualizerActive = true;
+            draw();
+        };
+
+    }else{
+        check_on.classList.add("d-none");
+        check_off.classList.remove("d-none");
+
+        function draw() {
+            console.log("canvas is off");
+        }
+        draw();
+
+        slider.classList.remove("d-none");
+        can.classList.add("d-none");
+    }
+}
