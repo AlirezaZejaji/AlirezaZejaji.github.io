@@ -1,0 +1,164 @@
+/* background image slider */
+body{
+    min-height: 100vh;
+}
+.pic1{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic1.jpg");
+}
+.pic2{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic2.jpg");
+}
+.pic3{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic3.jpg");
+}
+.pic4{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic4.jpg");
+}
+.pic5{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic5.jpg");
+}
+.pic6{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic6.jpg");
+}
+.pic7{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic7.gif");
+}
+.pic8{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic8.gif");
+}
+.pic9{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic9.jfif");
+}
+.pic10{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic10.jfif");
+}
+.pic11{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic11.jfif");
+}
+.pic12{
+    background: linear-gradient(rgba(0,0,0,0.5) , rgba(0,0,0,0.1)) ,url("../pic/pic12.jfif");
+}
+.slider .slide{
+    position: absolute;
+}
+.slider , .slider .slide{
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.slider{
+    position: fixed;
+    right: 0;
+}
+
+.slider .slide{
+    right: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+/* music box */
+.music-box{
+    background-color: rgba(0,0,0,0.6);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    position: relative;
+    top: 150px;
+    width: 80%;
+}
+
+/* music img */
+.img{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 180px;
+    width: 180px;
+    animation: rotate 8s linear infinite;
+    animation-play-state: paused;
+}
+.play{
+    animation-play-state : running;
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* time bar*/
+.progress_bar{
+    height: 7px;
+    border-radius: 100px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* time */
+.up-time{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: 0.3s linear;
+}
+
+/* controller btns size */
+.icon{
+    font-size: 25px;
+}
+.play , .pause{
+    font-size: 35px;
+}
+.controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+.control{
+    padding-left: 15px;
+}
+
+/* Responsive screen */
+@media screen and (min-width: 992px) {
+    .music-box {
+        width: 35%;
+    }
+}
+
+/* cursor btn */
+.controls i{
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+.controls i:hover{
+    color: yellow!important;
+}
+
+/* play list item */
+.pic_music img{
+    width: 70px;
+    height: 70px;
+    border-radius: 10%;
+}
+.item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* font */
+.winky-sans{
+    font-family: "Winky Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}

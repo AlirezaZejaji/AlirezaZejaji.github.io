@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- sweetalert -->
+    <script src="assets/plugin/sweetalert/sweetalert.min.js"></script>
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="header winky-sans">
+        <!-- back ground slider -->
+        <div id="carouselExampleFade carousel-fade" class="carousel slide carousel-fade " data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
+            <div class="carousel-inner slider">
+                <div class="carousel-item slide pic1 active"></div>
+                <div class="carousel-item slide pic2"></div>
+                <div class="carousel-item slide pic3"></div>
+                <div class="carousel-item slide pic4"></div>
+                <div class="carousel-item slide pic5"></div>
+                <div class="carousel-item slide pic6"></div>
+                <div class="carousel-item slide pic7"></div>
+                <div class="carousel-item slide pic8"></div>
+                <div class="carousel-item slide pic9"></div>
+                <div class="carousel-item slide pic10"></div>
+                <div class="carousel-item slide pic11"></div>
+                <div class="carousel-item slide pic12"></div>
+            </div>
+        </div>
+
+        <!-- start main box -->
+        <div class="container">
+            <!-- start music box -->
+            <div class="music-box mx-auto p-3">
+                <!-- music image And next , before music -->
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="pe-2">
+                        <button class="btn btn-outline-warning fs-6 btn_before">
+                            <i class="bi bi-caret-left-fill"></i>
+                        </button>
+                    </div>
+                    <div class="imges text-center">
+                        <img class="img img_music" src="assets/pic/Negaran Many.png" alt="pichear">
+                    </div>
+                    <div class="ps-2">
+                        <button class="btn btn-outline-warning fs-6 btn_next">
+                            <i class="bi bi-caret-right-fill"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- music name -->
+                <div class="text-warning text-center fw-normal">
+                    <h5 class="music_name">Negaran Mani</h5>
+                    <span class="artist_name">Morteza Pashaei</span>
+                </div>
+
+                <!-- start controller And timebar -->
+                <div class="audio">
+                    <!-- music -->
+                    <audio src="assets/music/Negaran mani.mp3" class=" music" preload="metadata"></audio>
+
+                    <!-- time -->
+                    <div class="music-times text-warning mt-2 d-flex justify-content-between fw-normal">
+                        <span class="strat-time">00:00</span>
+                        <span class="end-time">00:00</span>
+                    </div>
+
+                    <!-- time bar -->
+                    <div class="progress_bar bg-secondary mt-2 d-none">
+                        <div class="up-time bg-warning">
+
+                        </div>
+                    </div>
+                    <div class="progress progress_bar mt-2">
+                        <div class="up-time progress-bar progress-bar-striped progress-bar-animated bg-secondary w-100"></div>
+                    </div>
+
+                    <!-- controller btns -->
+                    <div class="controls d-flex align-items-center justify-content-between m-0">
+                        <!-- Button to open the add music Sidebar -->
+                        <div class="btn_add">
+                            <i class="bi bi-plus-square icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#add"></i>
+                        </div>
+                        <div class="control text-center p-0 me-4 d-flex justify-content-center align-items-center">
+                            <div class="d-flex justify-content-around align-items-center me-3">
+                                <div class="me-2">
+                                    <i class="bi bi-shuffle icon text-secondary rand_play_off"></i>
+                                    <i class="bi bi-shuffle icon text-warning rand_play_on d-none"></i>
+                                </div>
+
+                                <div>
+                                    <i class="bi bi-repeat-1 icon text-secondary repeat-off"></i>
+                                    <i class="bi bi-repeat-1 icon text-warning repeat-on d-none"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="me-3">
+                                <i class="bi bi-play-circle-fill icon text-warning play"></i>
+                                <i class="bi bi-pause-circle-fill icon text-warning pause d-none"></i>
+                            </div>
+
+                            <div>
+                                <i class="bi bi-volume-up-fill icon text-warning volume"></i>
+                                <i class="bi bi-volume-mute-fill icon text-secondary mute d-none"></i>
+                            </div>
+                        </div>
+                        <!-- Button to open the play list Sidebar -->
+                        <div class="btn_list">
+                            <i class="bi bi-music-note-list icon text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#paly_list"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- end controler And timebar -->
+            </div>
+            <!-- end music box -->
+        </div>
+        <!-- end main box -->
+
+        <!-- strat play list Sidebar -->
+        <div class="offcanvas offcanvas-end text-bg-dark" id="paly_list">
+            <!-- header items -->
+            <div class="offcanvas-header">
+                <h2 class="offcanvas-title text-warning">Play List</h2>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <!-- body items -->
+            <div class="offcanvas-body">
+                <div class="items">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- end play list Sidebar -->
+
+        <!-- start add music Sidebar -->
+        <div class="offcanvas offcanvas-start text-bg-dark" id="add">
+            <div class="offcanvas-header">
+                <h1 class="offcanvas-title text-warning">Add Music</h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body text-warning p-3">
+                <!-- get music -->
+                <div>
+                    <label for="audio_m">Select music :</label>
+                    <input type="file" id="audio_m" class="form-control inp_music" onchange="loadFile(this)">
+                </div>
+
+                <!-- name music -->
+                <div class="my-3">
+                    <label for="name_m">Enter music name :</label>
+                    <input type="text" id="name_m" class="form-control inp_music_name" onchange="change()">
+                </div>
+                <div class="my-3">
+                    <label for="name_a">Enter artist name :</label>
+                    <input type="text" id="name_a" class="form-control inp_artist_name" onchange="change()">
+                </div>
+                
+                <!-- card music -->
+                <div class="my-3 add_card">
+                    
+                </div>
+
+                <div>
+                    <button class="btn btn-success btn_add_music w-100" data-bs-dismiss="offcanvas">Add</button>
+                </div>
+            </div>
+        </div>
+        <!-- start end music Sidebar -->
+    </div>
+
+    <!-- bootstrap bundle -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript-ID3-Reader -->
+    <script src="assets/plugin/JavaScript-ID3-Reader/id3-minimized.js"></script>
+    <!-- js -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
