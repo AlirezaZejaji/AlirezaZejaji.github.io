@@ -142,10 +142,16 @@ function showTags(url) {
     `
     add_card.append(card_music);
 }
+
 // change textContent info music
+
+inp_music_name.addEventListener("input" , change);
+inp_artist_name.addEventListener("input" , change);
 function change(){
-    document.querySelector(".n_music").textContent = inp_music_name.value;
-    document.querySelector(".n_artist").textContent = inp_artist_name.value;
+    if(document.querySelector(".n_music")){
+        document.querySelector(".n_music").textContent = inp_music_name.value;
+        document.querySelector(".n_artist").textContent = inp_artist_name.value;
+    }
 }
 // add music in list
 btn_add_music.addEventListener("click" , function(){
@@ -401,7 +407,7 @@ music.addEventListener("ended" , repeat)
 function repeat(){
     btn_play.classList.remove("d-none");
     btn_pause.classList.add("d-none");
-    if(r==true){
+    if(r===true){
         music.play();
         img_music.classList.add("play")
         btn_play.classList.add("d-none");
